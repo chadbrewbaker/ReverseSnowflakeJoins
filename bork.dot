@@ -1,0 +1,75 @@
+digraph G {
+subgraph cluster_main  {
+	node [fontsize=12,
+		label="\N",
+		shape=record
+	];
+	_dummy	 [height=0.5,
+		label="",
+		pos="123,90",
+		shape=none,
+		width=0.75];
+	CATEGORY	 [fillcolor=white,
+		height=1.4028,
+		label="CATEGORY | (CATEGORY) |<category_id> category_id|<name> name|<category> name AS category",
+		pos="85.828,-117.95",
+		rects="33.838,-87.947,137.82,-67.947 33.838,-107.95,137.82,-87.947 33.838,-127.95,137.82,-107.95 33.838,-147.95,137.82,-127.95 33.838,-167.95,\
+137.82,-147.95",
+		style=filled,
+		width=1.4441];
+	FILM_CATEGORY	 [fillcolor=white,
+		height=1.125,
+		label="FILM_CATEGORY | (FILM_CATEGORY) |<category_id> category_id|<film_id> film_id",
+		pos="44.024,-58.909",
+		rects="-16.98,-38.909,105.03,-18.909 -16.98,-58.909,105.03,-38.909 -16.98,-78.909,105.03,-58.909 -16.98,-98.909,105.03,-78.909",
+		style=filled,
+		width=1.6946];
+	FILM_CATEGORY:category_id:e -> CATEGORY:category_id:w	 [arrowhead=dot,
+		arrowtail=none,
+		color=orange,
+		pos="33.828,-117.95 33.828,-117.95 105.02,-68.909 105.02,-68.909"];
+	FILM_ACTOR	 [fillcolor=white,
+		height=1.125,
+		label="FILM_ACTOR | (FILM_ACTOR) |<actor_id> actor_id|<film_id> film_id",
+		pos="-70.536,28.178",
+		rects="-120.1,48.178,-20.976,68.178 -120.1,28.178,-20.976,48.178 -120.1,8.1776,-20.976,28.178 -120.1,-11.822,-20.976,8.1776",
+		style=filled,
+		width=1.3767];
+	FILM	 [fillcolor=white,
+		height=2.7917,
+		label="FILM | (FILM) |<description> description AS description|<film_id> GROUP BY film_id|<fid> film_id AS fid|<length> length AS length|<\
+rating> rating AS rating|<rental_rate> rental_rate|<price> rental_rate AS price|<title> title AS title",
+		pos="-8.665,-9.267",
+		rects="-80.327,70.733,62.997,90.733 -80.327,50.733,62.997,70.733 -80.327,30.733,62.997,50.733 -80.327,10.733,62.997,30.733 -80.327,-9.267,\
+62.997,10.733 -80.327,-29.267,62.997,-9.267 -80.327,-49.267,62.997,-29.267 -80.327,-69.267,62.997,-49.267 -80.327,-89.267,62.997,\
+-69.267 -80.327,-109.27,62.997,-89.267",
+		style=filled,
+		width=1.9906];
+	FILM_ACTOR:film_id:e -> FILM:film_id:w	 [arrowhead=none,
+		arrowtail=none,
+		color=black,
+		pos="-80.665,20.733 -80.665,20.733 -20.536,-1.8224 -20.536,-1.8224"];
+	ACTOR	 [fillcolor=white,
+		height=1.6806,
+		label="ACTOR | (ACTOR) |<actors> ... AS actors|<actor_id> actor_id|<first_name> first_name|<last_name> last_name",
+		pos="-130.65,67.945",
+		rects="-167.82,107.94,-93.482,127.94 -167.82,87.945,-93.482,107.94 -167.82,67.945,-93.482,87.945 -167.82,47.945,-93.482,67.945 -167.82,\
+27.945,-93.482,47.945 -167.82,7.945,-93.482,27.945",
+		style=filled,
+		width=1.0324];
+	ACTOR:actor_id:e -> FILM_ACTOR:actor_id:w	 [arrowhead=none,
+		arrowtail=none,
+		color=black,
+		pos="-93.65,57.945 -93.65,57.945 -120.54,18.178 -120.54,18.178"];
+	FILM:film_id:e -> FILM_CATEGORY:film_id:w	 [arrowhead=dot,
+		arrowtail=none,
+		color=orange,
+		pos="63.335,20.733 63.335,20.733 -16.976,-88.909 -16.976,-88.909"];
+}
+
+
+
+
+
+
+}
